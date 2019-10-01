@@ -12,13 +12,6 @@ class ItineraryItemSerializer(serializers.HyperlinkedModelSerializer):
     Arguments:
         serializers
     """
-    attraction = serializers.HyperlinkedRelatedField(
-        queryset=Attraction.objects.all(),
-        view_name="attraction-detail",
-        may=False,
-        required=False,
-        lookup_field="pk"
-    )
 
     class Meta:
         model = Itinerary
