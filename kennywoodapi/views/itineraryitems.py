@@ -7,6 +7,7 @@ from rest_framework import status
 from kennywoodapi.models import Itinerary, Attraction, ParkArea, Customer
 
 
+
 class ItineraryItemSerializer(serializers.HyperlinkedModelSerializer):
     """JSON serializer for park areas
     Arguments:
@@ -73,8 +74,8 @@ class ItineraryItems(ViewSet):
             Response -- 200, 404, or 500 status code
         """
         try:
-            area = Attraction.objects.get(pk=pk)
-            area.delete()
+            itinerary_item = Itinerary.objects.get(pk=pk)
+            itinerary_item.delete()
 
             return Response({}, status=status.HTTP_204_NO_CONTENT)
 
